@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../auth/context/AuthContext";
 
 //     Este high order component verifica el estado si
@@ -9,6 +9,9 @@ import { AuthContext } from "../auth/context/AuthContext";
 
 export const PrivateRoutes = ({ children }) => {
   const { logged } = useContext(AuthContext);
-
+  const {pathname, search} = useLocation(AuthContext);
+  // guarda el lastPath en local storage
+  const lastPath = pathname + search
+  localStorage.setItem('lastpath', lastPath);
   return (logged )? children : <Navigate to="login" />;
 };
