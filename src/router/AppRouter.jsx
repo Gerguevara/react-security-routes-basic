@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-
 import { HeroesRoutes } from "../heroes";
 import { LoginPage } from "../auth";
 import { PrivateRoutes } from "./PrivateRoutes";
